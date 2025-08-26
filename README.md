@@ -260,7 +260,7 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para de
 
 ## 📞 Suporte
 
-- 📧 Email: [seu-email@exemplo.com]
+- 📧 Email: [felipe.sfreitas18@hotmail.com]
 - 💬 Issues: Use a aba Issues do GitHub
 - 📖 Documentação: [Terraform Docs](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)
 
