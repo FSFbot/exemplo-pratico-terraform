@@ -1,0 +1,294 @@
+# ================================
+# GITIGNORE - TERRAFORM PROJETO
+# ================================
+
+# ================================
+# ARQUIVOS TERRAFORM
+# ================================
+
+# Arquivos de estado do Terraform
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Diretório de plugins do Terraform
+.terraform/
+.terraform.lock.hcl
+
+# Planos de execução do Terraform
+*.tfplan
+*.tfplan.*
+
+# Arquivos de variáveis com dados sensíveis
+terraform.tfvars
+*.auto.tfvars
+*.auto.tfvars.json
+
+# Arquivos de override
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Arquivos de configuração local
+.terraformrc
+terraform.rc
+
+# ================================
+# CHAVES E CERTIFICADOS
+# ================================
+
+# Chaves SSH privadas
+*.pem
+*.key
+id_rsa*
+id_ed25519*
+id_ecdsa*
+
+# Certificados SSL
+*.crt
+*.cert
+*.cer
+*.p12
+*.pfx
+
+# Arquivos de configuração com credenciais
+.aws/
+.azure/
+.gcp/
+credentials
+config
+
+# ================================
+# LOGS E ARQUIVOS TEMPORÁRIOS
+# ================================
+
+# Logs
+*.log
+logs/
+*.out
+
+# Arquivos temporários
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Arquivos de backup
+*.bak
+*.backup
+*.orig
+
+# ================================
+# ARQUIVOS DO SISTEMA OPERACIONAL
+# ================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ================================
+# IDEs E EDITORES
+# ================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+.vimrc.local
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ================================
+# ARQUIVOS DE BUILD E DEPENDÊNCIAS
+# ================================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Ruby
+*.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/spec/examples.txt
+/test/tmp/
+/test/version_tmp/
+/tmp/
+
+# ================================
+# ARQUIVOS ESPECÍFICOS DO PROJETO
+# ================================
+
+# Arquivos de informação gerados
+connection_info.txt
+instance_info.txt
+deployment_info.txt
+
+# Arquivos de configuração local
+local.tf
+local.tfvars
+dev.tfvars
+prod.tfvars
+
+# Scripts personalizados
+custom_user_data.sh
+local_scripts/
+
+# Arquivos de teste
+test_results/
+*.test
+
+# ================================
+# ARQUIVOS DE DOCUMENTAÇÃO TEMPORÁRIOS
+# ================================
+
+# Arquivos Markdown temporários
+*.md.tmp
+*.md.backup
+
+# Arquivos de documentação gerados
+docs/generated/
+*.pdf.tmp
+
+# ================================
+# ARQUIVOS DE MONITORAMENTO E LOGS
+# ================================
+
+# Logs de aplicação
+app.log
+application.log
+debug.log
+error.log
+
+# Arquivos de métricas
+metrics/
+monitoring/
+
+# ================================
+# ARQUIVOS DE CONFIGURAÇÃO SENSÍVEIS
+# ================================
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Arquivos de configuração de banco de dados
+database.yml
+db.conf
+
+# Arquivos de configuração de API
+api_keys.txt
+secrets.txt
+passwords.txt
+
+# ================================
+# ARQUIVOS DE CACHE
+# ================================
+
+# Cache geral
+.cache/
+cache/
+*.cache
+
+# Cache do Terraform
+.terraform.d/
+
+# ================================
+# ARQUIVOS DE DEPLOYMENT
+# ================================
+
+# Arquivos de deployment temporários
+deploy/
+deployment/
+*.deploy
+
+# Arquivos de release
+release/
+dist/
+build/
+
+# ================================
+# COMENTÁRIOS E NOTAS
+# ================================
+
+# Este .gitignore foi criado para um projeto Terraform educacional
+# Ele inclui as principais categorias de arquivos que devem ser ignorados:
+
+# 1. SEGURANÇA: Chaves, certificados, credenciais
+# 2. TERRAFORM: Estados, planos, plugins, variáveis sensíveis
+# 3. SISTEMA: Arquivos temporários, logs, cache
+# 4. DESENVOLVIMENTO: IDEs, editores, dependências
+
+# IMPORTANTE:
+# - Sempre revise antes de fazer commit
+# - Nunca commite credenciais ou chaves privadas
+# - Use terraform.tfvars.example para documentar variáveis
+# - Mantenha arquivos sensíveis apenas localmente
+
+# Para adicionar exceções, use:
+# !arquivo_importante.txt
+
+# Para ignorar apenas em subdiretórios:
+# subdirectorio/*.log
+
+# Para ignorar globalmente:
+# **/*.log
+

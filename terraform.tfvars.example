@@ -1,0 +1,223 @@
+# ================================
+# EXEMPLO DE CONFIGURAÇÃO
+# Terraform Exemplo Prático
+# ================================
+
+# Copie este arquivo para terraform.tfvars e personalize as configurações
+
+# ================================
+# CONFIGURAÇÕES BÁSICAS
+# ================================
+
+# Região AWS onde os recursos serão criados
+aws_region = "us-east-1"
+
+# Nome do projeto (usado para nomear recursos)
+project_name = "meu-projeto-terraform"
+
+# Ambiente (dev, staging, prod)
+environment = "dev"
+
+# ================================
+# CONFIGURAÇÕES DE REDE
+# ================================
+
+# CIDR da VPC
+vpc_cidr = "10.0.0.0/16"
+
+# CIDR da subnet pública
+public_subnet_cidr = "10.0.1.0/24"
+
+# CIDR permitido para acesso SSH (recomendado: seu IP público)
+# Para descobrir seu IP: curl ifconfig.me
+# Exemplo: "203.0.113.0/32" (substitua pelo seu IP)
+allowed_ssh_cidr = "0.0.0.0/0"  # ⚠️ ATENÇÃO: Permite acesso de qualquer lugar!
+
+# ================================
+# CONFIGURAÇÕES DE COMPUTE
+# ================================
+
+# Tipo da instância EC2
+# Opções: t2.micro (Free Tier), t2.small, t2.medium, t3.micro, t3.small, etc.
+instance_type = "t2.micro"
+
+# Tamanho do volume raiz em GB
+root_volume_size = 8
+
+# ================================
+# CONFIGURAÇÕES DE APLICAÇÃO
+# ================================
+
+# Nome da aplicação
+app_name = "Minha Aplicação Web"
+
+# Versão da aplicação
+app_version = "1.0.0"
+
+# Habilitar SSL/HTTPS (requer certificado)
+enable_ssl = false
+
+# ================================
+# CONFIGURAÇÕES DE MONITORAMENTO
+# ================================
+
+# Habilitar monitoramento detalhado do CloudWatch (custos adicionais)
+enable_detailed_monitoring = false
+
+# Habilitar alarmes do CloudWatch
+enable_monitoring = false
+
+# Email para notificações (opcional)
+# notification_email = "seu-email@exemplo.com"
+
+# Habilitar notificações SNS
+enable_sns_notifications = false
+
+# ================================
+# RECURSOS OPCIONAIS
+# ================================
+
+# Criar bucket S3 para logs (custos adicionais)
+create_s3_bucket = false
+
+# Habilitar backups automatizados
+enable_automated_backups = false
+
+# Período de retenção de backups (dias)
+backup_retention_days = 7
+
+# ================================
+# CONFIGURAÇÕES DE SEGURANÇA
+# ================================
+
+# Forçar uso do IMDSv2 (mais seguro)
+enable_imdsv2 = true
+
+# Habilitar criptografia EBS
+enable_ebs_encryption = true
+
+# Habilitar proteção contra terminação
+enable_termination_protection = false
+
+# ================================
+# CONFIGURAÇÕES AVANÇADAS
+# ================================
+
+# Tenancy da instância (default, dedicated, host)
+instance_tenancy = "default"
+
+# Habilitar otimização EBS
+enable_ebs_optimization = false
+
+# Habilitar enhanced networking
+enable_enhanced_networking = false
+
+# Configuração de CPU credits (standard, unlimited)
+cpu_credits = "standard"
+
+# ================================
+# CONFIGURAÇÕES DE DESENVOLVIMENTO
+# ================================
+
+# Criar recursos adicionais para desenvolvimento
+create_development_resources = false
+
+# Permitir acesso de desenvolvimento (portas adicionais)
+allow_dev_access = false
+
+# Portas adicionais para desenvolvimento
+dev_ports = [3000, 8080, 9000]
+
+# ================================
+# CONFIGURAÇÕES DE REDE AVANÇADAS
+# ================================
+
+# Criar NAT Gateway (custos adicionais)
+enable_nat_gateway = false
+
+# Habilitar VPC Flow Logs (custos adicionais)
+enable_vpc_flow_logs = false
+
+# Habilitar DNS hostnames
+dns_hostnames = true
+
+# Habilitar DNS support
+dns_support = true
+
+# ================================
+# TAGS PERSONALIZADAS
+# ================================
+
+# Tags adicionais para todos os recursos
+additional_tags = {
+  "CostCenter" = "educacao"
+  "Owner"      = "estudante"
+  "Purpose"    = "aprendizado"
+}
+
+# Centro de custo
+cost_center = "education"
+
+# Proprietário dos recursos
+owner = "terraform-student"
+
+# ================================
+# EXEMPLOS DE CONFIGURAÇÃO POR AMBIENTE
+# ================================
+
+# DESENVOLVIMENTO
+# aws_region = "us-east-1"
+# instance_type = "t2.micro"
+# environment = "dev"
+# enable_detailed_monitoring = false
+# create_s3_bucket = false
+
+# STAGING
+# aws_region = "us-east-1"
+# instance_type = "t2.small"
+# environment = "staging"
+# enable_detailed_monitoring = true
+# create_s3_bucket = true
+# enable_monitoring = true
+
+# PRODUÇÃO
+# aws_region = "us-east-1"
+# instance_type = "t3.medium"
+# environment = "prod"
+# enable_detailed_monitoring = true
+# create_s3_bucket = true
+# enable_monitoring = true
+# enable_automated_backups = true
+# enable_termination_protection = true
+# allowed_ssh_cidr = "203.0.113.0/32"  # IP específico da empresa
+
+# ================================
+# NOTAS IMPORTANTES
+# ================================
+
+# 1. SEGURANÇA:
+#    - Sempre configure allowed_ssh_cidr com seu IP específico
+#    - Nunca use 0.0.0.0/0 em produção
+#    - Habilite criptografia e monitoramento em produção
+
+# 2. CUSTOS:
+#    - t2.micro é elegível para Free Tier (750 horas/mês)
+#    - Monitoramento detalhado tem custos adicionais
+#    - S3, NAT Gateway e VPC Flow Logs têm custos adicionais
+#    - Sempre execute 'terraform destroy' após testes
+
+# 3. REGIÕES:
+#    - us-east-1 geralmente tem os menores custos
+#    - Escolha região próxima aos usuários para menor latência
+#    - Algumas regiões podem não ter todos os tipos de instância
+
+# 4. TIPOS DE INSTÂNCIA:
+#    - t2.micro: 1 vCPU, 1 GB RAM (Free Tier)
+#    - t2.small: 1 vCPU, 2 GB RAM
+#    - t2.medium: 2 vCPU, 4 GB RAM
+#    - t3.micro: 2 vCPU, 1 GB RAM (mais performance que t2)
+
+# 5. DESENVOLVIMENTO vs PRODUÇÃO:
+#    - Dev: recursos mínimos, sem monitoramento
+#    - Prod: recursos adequados, monitoramento completo, backups
+
